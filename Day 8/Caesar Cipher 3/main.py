@@ -13,12 +13,23 @@ def caesar(original_text, shift_amount, encode_or_decode):
         shift_amount *= -1
     for letter in original_text:
         if not letter.isalpha():
-            output_text += " "
+            output_text += letter
             continue
         shifted_position = alphabet.index(letter) + shift_amount
         shifted_position %= len(alphabet)
         output_text += alphabet[shifted_position]
     print(f"Here is the {encode_or_decode}d result: {output_text}")
+    go_again=input(f"Type 'yes' if you want to go again. Otherwise, type 'no'.").lower()
+    while go_again == "yes":
+        direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+        while direction != "encode" and direction != "decode":
+            direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
+        text = input("Type your message:\n").lower()
+        shift = int(input("Type the shift number:\n"))
+        caesar(original_text=text, shift_amount=shift, encode_or_decode=direction)
+    else:
+        print("Good bye.")
+        return
 
 
 # TODO-3: Can you figure out a way to restart the cipher program?
