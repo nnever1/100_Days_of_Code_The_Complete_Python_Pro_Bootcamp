@@ -1,3 +1,5 @@
+import art
+print(art.logo)
 bidder_name= input("What is your name?\n")
 bid= int(input("What is your bid: $"))
 bids= {
